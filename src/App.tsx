@@ -1,11 +1,11 @@
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <h1>Welcome to Garage Hub</h1>
-    </>
+    <div className="bg-darkSlatePrimary h-full">
+      <h1 className="text-white text-center">Welcome, to Garage Hub</h1>
+    </div>
   );
-}
+};
 
 export default App;
