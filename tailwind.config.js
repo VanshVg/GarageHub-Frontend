@@ -12,6 +12,8 @@ export default {
         white: "#FAFAFA",
         charcoalGray: "#4D4D4D",
         lightBlue: "#A9CCE3",
+        primaryButton: "#48CAE4",
+        primaryButtonHover: "#0096C7",
       },
       backgroundImage: {},
       fontFamily: {
