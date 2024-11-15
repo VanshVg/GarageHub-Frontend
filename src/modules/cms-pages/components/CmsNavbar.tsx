@@ -1,13 +1,23 @@
 import { useNavigate } from "react-router-dom";
+
 import { CmsRoutesPath } from "../types";
 import { navbarData } from "../types/constants";
+import Button from "@/common/components/form-fields/Button";
 
 const CmsNavbar = () => {
   const navigate = useNavigate();
+
   return (
     <div className="flex justify-between items-center py-4 px-8 bg-slate-800">
       <div>
-        <img src={navbarData.logoUrl} className="h-20 w-20 cursor-pointer" alt="Logo" />
+        <img
+          src={navbarData.logoUrl}
+          className="h-20 w-20 cursor-pointer"
+          alt="Logo"
+          onClick={() => {
+            navigate(CmsRoutesPath.Home);
+          }}
+        />
       </div>
       <div className="flex gap-8 text-white text-lg items-center">
         {navbarData?.navigationMenu?.map(
@@ -26,12 +36,7 @@ const CmsNavbar = () => {
       </div>
       <div className="flex gap-4 items-center">
         {navbarData?.buttons?.map((item: string, index: number) => (
-          <button
-            key={index}
-            className="bg-primaryButton text-black hover:bg-primaryButtonHover py-2 px-4 rounded-md transition-colors duration-300"
-          >
-            {item}
-          </button>
+          <Button key={index} btnName={item} />
         ))}
       </div>
     </div>

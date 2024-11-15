@@ -1,7 +1,9 @@
 import { Suspense } from "react";
-import { IRoute } from "./types";
-import { CMSRoutes, RequiresUnAuthForCMS } from "./modules/cms-pages/routes";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import { IRoute } from "./common/types";
+
+import { CMSRoutes, RequiresUnAuthForCMS } from "./modules/cms-pages/routes";
 
 const applySuspense = (routes: IRoute[]): IRoute[] => {
   return routes.map((route: IRoute) => ({

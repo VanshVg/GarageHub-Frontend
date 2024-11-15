@@ -1,7 +1,9 @@
+import MainSection from "./components/MainSection";
+
 const HomePage = () => {
   return (
     <div>
-      <h1>Welcome to Home Page of Garage Hub</h1>
+      <MainSection />
     </div>
   );
 };
