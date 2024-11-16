@@ -24,7 +24,7 @@ const Button = ({
       btnType = `bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-lg transition-colors duration-300 ${btnClass}`;
       break;
     default:
-      btnType = `bg-primaryButton text-black hover:bg-primaryButtonHover py-2 px-4 rounded-md transition-colors duration-300 ${
+      btnType = ` py-2 px-4 rounded-md transition-colors duration-300 ${
         btnClass ?? ""
       }`;
   }
