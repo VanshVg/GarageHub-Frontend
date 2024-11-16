@@ -40,3 +40,25 @@ export const OverviewSectionData = {
   tealButton: "Sign Up Now and Boost Your Garage!",
   slateButton: "Book Your First Appointment!",
 };
+
+export const HowSectionData = {
+  heading: "How GarageHub Works",
+  subHeading: `Managing your garage and serving customers has never been easier.
+          Here's a simple walkthrough of how GarageHub streamlines operations
+          for garage owners and enhances the experience for customers.`,
+  cards: [
+    {
+      heading: "For Garage Owners",
+      subHeading: "Register and Set Up Your Profile",
+      subText: `Create an account, add your garage's details, and customize services, pricing, and availability to 
+      match your business needs.`,
+      svgBg: "bg-green-500",
+    },
+    {
+      heading: "For Customers",
+      subHeading: "Register and Set Up Your Profile",
+      subText: `Easily find garages in your area by service type and location and book appointments.`,
+      svgBg: "bg-blue-500",
+    },
+  ],
+};

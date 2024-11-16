@@ -1,4 +1,4 @@
-import { CheckIcon } from "@/assets/Svg";
+import { GreenCheckIcon } from "@/assets/Svg";
 import { OverviewSectionData } from "../types/constants";
 import Button from "@/common/components/form-fields/Button";
 import { btnShowType } from "@/common/types";
@@ -15,15 +15,18 @@ const OverviewSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {OverviewSectionData.cards.map((card) => (
-            <div className="bg-white shadow-md rounded-lg p-6 text-left">
+          {OverviewSectionData.cards.map((card, index) => (
+            <div
+              className="bg-white shadow-md rounded-lg p-6 text-left"
+              key={index}
+            >
               <h3 className="text-xl font-semibold text-slate-800 mb-4">
                 {card.heading}
               </h3>
               <ul className="space-y-2 text-gray-600">
-                {card.benefits.map((benefit) => (
-                  <li className="flex gap-[10px]">
-                    <CheckIcon /> {benefit}
+                {card.benefits.map((benefit, index) => (
+                  <li className="flex gap-[10px]" key={index}>
+                    <GreenCheckIcon /> {benefit}
                   </li>
                 ))}
               </ul>
