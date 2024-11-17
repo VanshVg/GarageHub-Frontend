@@ -3,7 +3,7 @@ export const MainSectionData = {
   subHeading:
     "Find trusted mechanics, book appointments, and get instant quotes all in one place.",
   tealButton: "Find a Garage",
-  grayButton: "Explore Services",
+  whiteButton: "Explore Services",
 };
 
 export const OverviewSectionData = {

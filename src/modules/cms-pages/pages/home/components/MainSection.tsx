@@ -18,8 +18,8 @@ const MainSection = () => {
           btnName={MainSectionData.tealButton}
         />
         <Button
-          showType={btnShowType.Gray}
-          btnName={MainSectionData.grayButton}
+          showType={btnShowType.White}
+          btnName={MainSectionData.whiteButton}
         />
       </div>
     </div>

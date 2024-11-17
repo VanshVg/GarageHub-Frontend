@@ -10,7 +10,7 @@ export type IRoute = {
 export enum btnShowType {
   Primary = "primary",
   Teal = "teal",
-  Gray = "gray",
+  White = "white",
 }
 
 export interface IButtonProps {

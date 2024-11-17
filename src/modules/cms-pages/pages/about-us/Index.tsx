@@ -1,8 +1,20 @@
+import BottomSection from "./components/BottomSection";
+import MainSection from "./components/MainSection";
+import StorySection from "./components/StorySection";
+import ValuesSection from "./components/ValuesSection";
+import VisionSection from "./components/VisionSection";
+import WhySection from "./components/WhySection";
+
 const AboutUsPage = () => {
   return (
-    <div>
-      <h1>Welcome to About-Us Page of Garage Hub</h1>
-    </div>
+    <section className="bg-gray-50 text-gray-800">
+      <MainSection />
+      <VisionSection />
+      <StorySection />
+      <ValuesSection />
+      <WhySection />
+      <BottomSection />
+    </section>
   );
 };
 
