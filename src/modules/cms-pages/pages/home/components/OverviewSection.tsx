@@ -17,7 +17,7 @@ const OverviewSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {OverviewSectionData.cards.map((card, index) => (
             <div
-              className="bg-white shadow-md rounded-lg p-6 text-left"
+              className="bg-white shadow-md rounded-lg p-6 text-left hover:shadow-lg transition cursor-default"
               key={index}
             >
               <h3 className="text-xl font-semibold text-slate-800 mb-4">

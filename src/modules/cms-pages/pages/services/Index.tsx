@@ -1,7 +1,17 @@
+import BottomSection from "./components/BottomSection";
+import CategoriesSection from "./components/CategoriesSection";
+import MainSection from "./components/MainSection";
+import OurServicesSection from "./components/OurServicesSection";
+import WhySection from "./components/WhySection";
+
 const ServicesPage = () => {
   return (
     <div>
-      <h1>Welcome to Services Page of Garage Hub</h1>
+      <MainSection />
+      <OurServicesSection />
+      <WhySection />
+      <CategoriesSection />
+      <BottomSection />
     </div>
   );
 };
