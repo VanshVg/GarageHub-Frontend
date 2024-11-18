@@ -15,7 +15,7 @@ const BottomSection = () => {
         />
         <Button
           btnName={BottomSectionData.secondaryButton}
-          btnClass="font-semibold bg-[#f9a826] text-black hover:bg-[#c47d17] px-6 py-3 rounded-md"
+          btnClass="font-semibold bg-[#48CAE4] text-black hover:bg-[#0096C7] px-6 py-3 rounded-md"
         />
       </div>
     </section>
