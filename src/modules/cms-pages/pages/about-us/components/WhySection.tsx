@@ -1,10 +1,10 @@
 import Button from "@/common/components/form-fields/Button";
-import { WhySectionData } from "../types";
+import { WhySectionData } from "../types/constants";
 import { btnShowType } from "@/common/types";
 
 const WhySection = () => {
   return (
-    <div className="bg-gray-100 py-16 max-w-6xl mx-auto">
+    <section className="bg-gray-100 py-16 max-w-6xl mx-auto">
       <div className="px-4 text-center">
         <h2 className="text-4xl font-bold mb-8 text-slate-800">
           {WhySectionData.heading}
@@ -18,7 +18,7 @@ const WhySection = () => {
           btnClass="bg-teal-400 text-white hover:bg-teal-600"
         />
       </div>
-    </div>
+    </section>
   );
 };
 

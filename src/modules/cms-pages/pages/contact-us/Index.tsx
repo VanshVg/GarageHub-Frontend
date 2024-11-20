@@ -1,7 +1,13 @@
+import BottomSection from "./components/BottomSection";
+import ContactUsForm from "./components/ContactUsForm";
+import MainSection from "./components/MainSection";
+
 const ContactUsPage = () => {
   return (
     <div>
-      <h1>Welcome to Contact Us Page of Garage Hub</h1>
+      <MainSection />
+      <ContactUsForm />
+      <BottomSection />
     </div>
   );
 };

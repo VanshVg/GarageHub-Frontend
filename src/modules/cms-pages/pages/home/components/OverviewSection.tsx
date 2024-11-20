@@ -5,7 +5,7 @@ import { btnShowType } from "@/common/types";
 
 const OverviewSection = () => {
   return (
-    <div className="bg-gray-100 py-20 px-8">
+    <section className="bg-gray-100 py-20 px-8">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold text-slate-800 mb-6">
           {OverviewSectionData.header}
@@ -46,7 +46,7 @@ const OverviewSection = () => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

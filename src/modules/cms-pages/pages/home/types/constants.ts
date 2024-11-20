@@ -42,7 +42,7 @@ export const OverviewSectionData = {
 };
 
 export const HowSectionData = {
-  heading: "How GarageHub Works",
+  heading: "How GarageHub Works?",
   subHeading: `Managing your garage and serving customers has never been easier.
           Here's a simple walkthrough of how GarageHub streamlines operations
           for garage owners and enhances the experience for customers.`,

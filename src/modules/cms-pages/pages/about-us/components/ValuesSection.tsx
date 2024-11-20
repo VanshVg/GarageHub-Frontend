@@ -1,8 +1,8 @@
-import { ValuesSectionData } from "../types";
+import { ValuesSectionData } from "../types/constants";
 
 const ValuesSection = () => {
   return (
-    <div className="px-4 py-16 max-w-6xl mx-auto">
+    <section className="px-4 py-16 max-w-6xl mx-auto">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold text-slate-800">
           {ValuesSectionData.heading}
@@ -19,7 +19,7 @@ const ValuesSection = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
