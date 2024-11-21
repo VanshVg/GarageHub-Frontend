@@ -1,1 +1,1 @@
-# Garage Hub
+# Garage Hub - Frontend
