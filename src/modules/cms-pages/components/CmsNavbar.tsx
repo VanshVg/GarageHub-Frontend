@@ -4,6 +4,7 @@ import { CmsRoutesPath } from "../types";
 import { navbarData } from "../types/constants";
 import Button from "@/common/components/form-fields/Button";
 import { btnShowType } from "@/common/types";
+import { MainLogo, ProjectTitle } from "@/common/types/constants";
 
 const CmsNavbar = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const CmsNavbar = () => {
     <div className="flex justify-between items-center py-4 px-8 bg-slate-800">
       <div className="flex items-center">
         <img
-          src={navbarData.logoUrl}
+          src={MainLogo}
           className="h-20 w-20 cursor-pointer"
           alt="Logo"
           onClick={() => {
@@ -25,7 +26,7 @@ const CmsNavbar = () => {
             navigate(CmsRoutesPath.Home);
           }}
         >
-          {navbarData.projectTitle}
+          {ProjectTitle}
         </h1>
       </div>
       <div className="flex gap-8 text-white text-lg items-center">

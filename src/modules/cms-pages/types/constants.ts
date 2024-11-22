@@ -1,8 +1,6 @@
 import { CmsRoutesPath } from ".";
 
 export const navbarData = {
-  logoUrl: "./logo.png",
-  projectTitle: "Garage Hub",
   navigationMenu: [
     {
       name: "Home",
