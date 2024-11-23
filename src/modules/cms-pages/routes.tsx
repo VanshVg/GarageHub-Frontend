@@ -1,11 +1,8 @@
 import React, { Suspense } from "react";
-import { Outlet } from "react-router-dom";
+
 import { CmsRoutesPath } from "./types";
 import { IRoute } from "@/common/types";
 
-const CmsNavbar = React.lazy(
-  () => import("@/modules/cms-pages/components/CmsNavbar")
-);
 const HomePage = React.lazy(
   () => import("@/modules/cms-pages/pages/home/Index")
 );
@@ -24,17 +21,6 @@ const applySuspense = (routes: IRoute[]): IRoute[] => {
     ...route,
     element: <Suspense>{route.element}</Suspense>,
   }));
-};
-
-export const RequiresUnAuthForCMS = () => {
-  return (
-    <>
-      <Suspense>
-        <CmsNavbar />
-        <Outlet />
-      </Suspense>
-    </>
-  );
 };
 
 export const CMSRoutes = applySuspense([

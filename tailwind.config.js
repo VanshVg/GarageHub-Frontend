@@ -15,7 +15,9 @@ export default {
         primaryButton: "#f9a826",
         primaryButtonHover: "#c47d17",
       },
-      backgroundImage: {},
+      backgroundImage: {
+        authPattern: "url('/images/bgPatternAuth.png');",
+      },
       fontFamily: {
         jost: "Jost",
       },

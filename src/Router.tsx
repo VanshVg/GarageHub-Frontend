@@ -3,8 +3,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { IRoute } from "./common/types";
 
-import { CMSRoutes, RequiresUnAuthForCMS } from "./modules/cms-pages/routes";
-import { AuthRoutes, RequiresUnAuthForAuth } from "./modules/auth/routes";
+import CmsPages from "./modules/cms-pages/CmsPages";
+import Auth from "./modules/auth/Auth";
+import { CMSRoutes } from "./modules/cms-pages/routes";
+import { AuthRoutes } from "./modules/auth/routes";
 
 const applySuspense = (routes: IRoute[]): IRoute[] => {
   return routes.map((route: IRoute) => ({
@@ -16,14 +18,14 @@ const applySuspense = (routes: IRoute[]): IRoute[] => {
 const RouterComponent = () => {
   const routesForCMS = applySuspense([
     {
-      element: <RequiresUnAuthForCMS />,
+      element: <CmsPages />,
       children: CMSRoutes,
     },
   ]);
 
   const routesForAuth = applySuspense([
     {
-      element: <RequiresUnAuthForAuth />,
+      element: <Auth />,
       children: AuthRoutes,
     },
   ]);
