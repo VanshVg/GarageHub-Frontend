@@ -1,3 +1,5 @@
+import { AuthRoutesPath } from "@/modules/auth/types";
+
 export const MainSectionData = {
   header: "Your One-Stop Solution for All Garage Needs",
   subHeading:
@@ -37,7 +39,10 @@ export const OverviewSectionData = {
       ],
     },
   ],
-  tealButton: "Sign Up Now and Boost Your Garage!",
+  tealButton: {
+    name: "Sign Up Now and Boost Your Garage!",
+    path: AuthRoutesPath.Signup,
+  },
   slateButton: "Book Your First Appointment!",
 };
 

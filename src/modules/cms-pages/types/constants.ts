@@ -1,3 +1,4 @@
+import { AuthRoutesPath } from "@/modules/auth/types";
 import { CmsRoutesPath } from ".";
 
 export const navbarData = {
@@ -19,5 +20,5 @@ export const navbarData = {
       path: CmsRoutesPath.ContactUs,
     },
   ],
-  buttons: ["Get Started"],
+  buttons: [{ name: "Get Started", path: AuthRoutesPath.Login }],
 };

@@ -2,8 +2,11 @@ import { GreenCheckIcon } from "@/assets/Svg";
 import { OverviewSectionData } from "../types/constants";
 import Button from "@/common/components/form-fields/Button";
 import { btnShowType } from "@/common/types";
+import { useNavigate } from "react-router-dom";
 
 const OverviewSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="bg-gray-100 py-20 px-8">
       <div className="max-w-6xl mx-auto text-center">
@@ -37,8 +40,9 @@ const OverviewSection = () => {
         <div className="flex justify-center gap-4 mt-12">
           <Button
             showType={btnShowType.Teal}
-            btnName={OverviewSectionData.tealButton}
+            btnName={OverviewSectionData.tealButton.name}
             btnClass="bg-teal-400 text-white hover:bg-teal-600"
+            onClickHandler={() => navigate(OverviewSectionData.tealButton.path)}
           />
           <Button
             btnName={OverviewSectionData.slateButton}

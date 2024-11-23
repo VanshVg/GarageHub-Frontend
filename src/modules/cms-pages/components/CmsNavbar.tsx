@@ -45,9 +45,16 @@ const CmsNavbar = () => {
         )}
       </div>
       <div className="flex gap-4 items-center">
-        {navbarData?.buttons?.map((item: string, index: number) => (
-          <Button key={index} btnName={item} showType={btnShowType.Primary} />
-        ))}
+        {navbarData?.buttons?.map(
+          (item: { name: string; path: string }, index: number) => (
+            <Button
+              key={index}
+              btnName={item.name}
+              showType={btnShowType.Primary}
+              onClickHandler={() => navigate(item.path)}
+            />
+          )
+        )}
       </div>
     </div>
   );

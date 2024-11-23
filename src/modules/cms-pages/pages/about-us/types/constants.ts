@@ -3,12 +3,13 @@ import {
   WhitePlusIcon,
   WhiteTrustIcon,
 } from "@/assets/Svg";
+import { AuthRoutesPath } from "@/modules/auth/types";
 
 export const MainSectionData = {
   heading: "About GarageHub",
   subHeading: `Revolutionizing the way garages and customers connect. Empowering
           garage owners while simplifying auto maintenance for customers.`,
-  button: "Get Started Now",
+  button: { name: "Get Started Now", path: AuthRoutesPath.Signup },
 };
 
 export const VisionSectionData = {
@@ -64,5 +65,5 @@ export const BottomSectionData = {
   heading: "Ready to Get Started?",
   subHeading: `Join GarageHub today and experience a new era of automotive service
         management.`,
-  button: "Sign Up Now",
+  button: { name: "Sign Up Now", path: AuthRoutesPath.Signup },
 };

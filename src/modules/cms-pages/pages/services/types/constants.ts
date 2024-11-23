@@ -1,3 +1,5 @@
+import { AuthRoutesPath } from "@/modules/auth/types";
+
 export const MainSectionData = {
   heading: "Comprehensive Auto Services at Your Fingertips",
   subHeading: `Explore a wide range of garage services tailored for you. Whether you're
@@ -82,5 +84,8 @@ export const BottomSectionData = {
   subHeading: `Whether you're a garage owner or a vehicle owner, GarageHub makes auto
         services simple, efficient, and reliable.`,
   primaryButton: "Find a Service Near You",
-  secondaryButton: "Join as a Garage Owner",
+  secondaryButton: {
+    name: "Join as a Garage Owner",
+    path: AuthRoutesPath.Signup,
+  },
 };
