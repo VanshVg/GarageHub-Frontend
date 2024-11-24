@@ -10,6 +10,7 @@ const Input = <T extends FieldValues>({
   inputEndIcon,
   control,
   textLabelName,
+  labelColor,
   name,
   errors,
   type,
@@ -18,7 +19,12 @@ const Input = <T extends FieldValues>({
 }: IInputProps<T>) => {
   return (
     <div className="relative mb-4">
-      <label className="block pb-2 text-charcoalGray font-jost text-sm md:text-base">
+      <label
+        className={
+          "block pb-2 font-jost text-sm md:text-base " +
+          `${labelColor ? labelColor : "text-charcoalGray"}`
+        }
+      >
         {textLabelName}
       </label>
 

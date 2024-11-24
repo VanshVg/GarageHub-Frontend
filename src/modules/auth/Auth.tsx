@@ -14,11 +14,11 @@ const Auth = () => {
     return <Navigate to={""} />;
   } else {
     return (
-      <div className="bg-white bg-authPattern flex justify-center min-h-screen py-20 px-4">
+      <div className="bg-white bg-authPattern flex justify-center min-h-screen py-8 px-4">
         <div className="w-full md:w-[600px]">
           <img
             src={MainLogo}
-            className="h-28 w-28 cursor-pointer p-1 bg-gray-900 rounded-full mx-auto mb-8"
+            className="h-28 w-28 cursor-pointer p-[1px] bg-gray-900 rounded-full mx-auto mb-8"
             alt="GarageHub Logo"
             onClick={() => {
               navigate(CmsRoutesPath.Home);

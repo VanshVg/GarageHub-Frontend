@@ -42,6 +42,7 @@ export type IInputProps<T extends FieldValues> = {
   autoComplete?: string;
   textLabelName?: string;
   isDisabled?: boolean;
+  labelColor?: string;
 };
 
 export type ITextAreaProps<T extends FieldValues> = {
@@ -56,3 +57,8 @@ export type ITextAreaProps<T extends FieldValues> = {
   textLabelName?: string;
   isDisabled?: boolean;
 };
+
+export enum UserRoles {
+  Customer = "Customer",
+  Owner = "Owner",
+}
