@@ -1,56 +1,34 @@
-import { useForm } from "react-hook-form";
-import SignupForm from "./components/SignupForm";
-import { SignupData } from "./types/constants";
-import { useSearchParams } from "react-router-dom";
-import RoleSelection from "./components/RoleSelection";
-import { useEffect, useState } from "react";
 import { UserRoles } from "@/common/types";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
+import { setStep } from "@/redux/slices/signupSlice";
+
+import SignupForm from "./components/SignupForm";
+import RoleSelection from "./components/RoleSelection";
 
 const Signup = () => {
-  const {
-    control,
-    formState: { errors },
-  } = useForm();
+  const formData = useSelector((state: RootState) => state.signup);
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [userRole, setUserRole] = useState<UserRoles>();
+  const dispatch = useDispatch();
 
-  const step = searchParams.get("step");
+  const step = formData.step;
 
-  const changeStepHandler = (newStep: string) => {
-    setSearchParams((params) => {
-      params.set("step", newStep);
-      return params;
-    });
+  const changeStepHandler = (newStep: number) => {
+    dispatch(setStep(newStep));
   };
 
-  const userRoleHandler = (role: UserRoles) => {
-    setUserRole(role);
+  const onSubmit = async () => {
+    console.log(formData);
   };
-
-  useEffect(() => {
-    if (!step) {
-      setSearchParams((params) => {
-        params.set("step", "1");
-        return params;
-      });
-    }
-  }, [step]);
 
   return (
     <div className="text-center px-6">
-      {step === "1" && (
-        <SignupForm
-          control={control}
-          errors={errors}
-          changeStepHandler={changeStepHandler}
-        />
-      )}
-      {step === "2" && (
+      {step === 1 && <SignupForm changeStepHandler={changeStepHandler} />}
+      {step === 2 && (
         <RoleSelection
-          userRoleHandler={userRoleHandler}
           changeStepHandler={changeStepHandler}
-          userRole={userRole as UserRoles}
+          userRole={formData.role as UserRoles}
+          onSubmit={onSubmit}
         />
       )}
     </div>

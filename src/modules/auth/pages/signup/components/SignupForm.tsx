@@ -1,14 +1,68 @@
 import { ShowPassword } from "@/assets/Svg";
 import Button from "@/common/components/form-fields/Button";
 import Input from "@/common/components/form-fields/Input";
-import { btnShowType } from "@/common/types";
+import { btnShowType, IUser } from "@/common/types";
 import { SignupData } from "../types/constants";
 import { Link } from "react-router-dom";
 import { AuthRoutesPath } from "@/modules/auth/types";
 import { ISignupFormProps } from "../types";
+import { useDispatch, useSelector } from "react-redux";
+import { clearFormData, setFormData } from "@/redux/slices/signupSlice";
+import { useForm, useWatch } from "react-hook-form";
+import { RootState } from "@/redux/store";
+import { useEffect } from "react";
+import { yupResolver } from "@hookform/resolvers/yup/src/yup.js";
+import { signUpValidationSchema } from "../validation-schema/signupSchema";
 
 const SignupForm = (props: ISignupFormProps) => {
-  const { control, errors, changeStepHandler } = props;
+  const {
+    control,
+    formState: { errors },
+    reset,
+    trigger,
+  } = useForm<IUser>({
+    mode: "onChange",
+    resolver: yupResolver(signUpValidationSchema),
+  });
+
+  const { changeStepHandler } = props;
+
+  const defaultData = useSelector((state: RootState) => state.signup);
+
+  const dispatch = useDispatch();
+  const formValues = useWatch({ control });
+
+  useEffect(() => {
+    if (defaultData?.formData !== null) {
+      reset(defaultData?.formData);
+    }
+  }, [defaultData]);
+
+  useEffect(() => {
+    dispatch(clearFormData());
+  }, []);
+
+  const nextButtonHandler = async () => {
+    const { firstName, lastName, email, password, confirmPassword } =
+      formValues as IUser;
+
+    const isValid = await trigger();
+
+    if (!isValid) {
+      return;
+    }
+    dispatch(
+      setFormData({
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+      })
+    );
+
+    changeStepHandler(2);
+  };
 
   return (
     <>
@@ -79,7 +133,7 @@ const SignupForm = (props: ISignupFormProps) => {
             btnClass="mt-6 flex ml-auto"
             type="button"
             onClickHandler={() => {
-              changeStepHandler("2");
+              nextButtonHandler();
             }}
           />
           <div className="flex justify-center gap-2 text-lg mt-4">

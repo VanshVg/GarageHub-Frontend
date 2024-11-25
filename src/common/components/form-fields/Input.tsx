@@ -99,7 +99,7 @@ const InputField = <T extends FieldValues>({
         errors={errors}
         name={name}
         render={({ message }) => (
-          <span className="block mt-1 text-sm font-medium text-red-600">
+          <span className="block mt-1 text-sm font-medium text-red-600 text-left">
             {message}
           </span>
         )}

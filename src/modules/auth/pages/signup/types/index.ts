@@ -1,14 +1,11 @@
-import { FormControlProp, UserRoles } from "@/common/types";
-import { FieldErrors } from "react-hook-form";
+import { UserRoles } from "@/common/types";
 
 export interface ISignupFormProps {
-  control: FormControlProp;
-  errors: FieldErrors;
-  changeStepHandler: (newStep: string) => void;
+  changeStepHandler: (newStep: number) => void;
 }
 
 export interface IRoleSelectionProps {
-  userRoleHandler: (role: UserRoles) => void;
-  changeStepHandler: (newStep: string) => void;
+  changeStepHandler: (newStep: number) => void;
   userRole: UserRoles;
+  onSubmit: () => void;
 }

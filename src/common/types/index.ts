@@ -62,3 +62,12 @@ export enum UserRoles {
   Customer = "Customer",
   Owner = "Owner",
 }
+
+export interface IUser {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  role?: UserRoles;
+}
