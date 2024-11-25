@@ -10,4 +10,5 @@ export interface ISignupFormProps {
 export interface IRoleSelectionProps {
   userRoleHandler: (role: UserRoles) => void;
   changeStepHandler: (newStep: string) => void;
+  userRole: UserRoles;
 }
