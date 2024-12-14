@@ -71,3 +71,8 @@ export interface IUser {
   confirmPassword: string;
   role?: UserRoles;
 }
+
+export enum GeneralResponseEnum {
+  success = "success",
+  error = "error",
+}
