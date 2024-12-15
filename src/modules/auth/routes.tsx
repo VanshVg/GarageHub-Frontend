@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 
 import { IRoute } from "@/common/types";
 import { AuthRoutesPath } from "./types";
+import OtpVerification from "./pages/otp-verification/Index";
 
 const Login = React.lazy(() => import("@/modules/auth/pages/login/Index"));
 const Signup = React.lazy(() => import("@/modules/auth/pages/signup/Index"));
@@ -21,5 +22,9 @@ export const AuthRoutes = applySuspense([
   {
     path: AuthRoutesPath.Signup,
     element: <Signup />,
+  },
+  {
+    path: AuthRoutesPath.OtpVerification,
+    element: <OtpVerification />,
   },
 ]);

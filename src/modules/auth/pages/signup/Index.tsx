@@ -5,11 +5,16 @@ import { setStep } from "@/redux/slices/signupSlice";
 
 import SignupForm from "./components/SignupForm";
 import RoleSelection from "./components/RoleSelection";
+import { useUpdateRoleApi } from "../../services";
+import { useNavigate } from "react-router-dom";
+import { AuthRoutesPath } from "../../types";
 
 const Signup = () => {
   const formData = useSelector((state: RootState) => state.signup);
 
   const dispatch = useDispatch();
+  const { updateRoleApi } = useUpdateRoleApi();
+  const navigate = useNavigate();
 
   const step = formData.step;
 
@@ -18,7 +23,13 @@ const Signup = () => {
   };
 
   const onSubmit = async () => {
-    console.log(formData);
+    const { data } = await updateRoleApi({
+      role: formData.role,
+      email: formData?.formData?.email,
+    });
+    if (data?.data?.token) {
+      navigate(`${AuthRoutesPath.OtpVerification}?auth=${data?.data?.token}`);
+    }
   };
 
   return (

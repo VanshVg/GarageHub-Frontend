@@ -13,6 +13,7 @@ import { RootState } from "@/redux/store";
 import { useEffect } from "react";
 import { yupResolver } from "@hookform/resolvers/yup/src/yup.js";
 import { signUpValidationSchema } from "../validation-schema/signupSchema";
+import { useSignupApi } from "@/modules/auth/services";
 
 const SignupForm = (props: ISignupFormProps) => {
   const {
@@ -30,6 +31,8 @@ const SignupForm = (props: ISignupFormProps) => {
   const defaultData = useSelector((state: RootState) => state.signup);
 
   const dispatch = useDispatch();
+  const { signupApi, isSuccess: isSignUpSuccess } = useSignupApi();
+
   const formValues = useWatch({ control });
 
   useEffect(() => {
@@ -42,6 +45,12 @@ const SignupForm = (props: ISignupFormProps) => {
     dispatch(clearFormData());
   }, []);
 
+  useEffect(() => {
+    if (isSignUpSuccess) {
+      changeStepHandler(2);
+    }
+  }, [isSignUpSuccess]);
+
   const nextButtonHandler = async () => {
     const { firstName, lastName, email, password, confirmPassword } =
       formValues as IUser;
@@ -51,6 +60,14 @@ const SignupForm = (props: ISignupFormProps) => {
     if (!isValid) {
       return;
     }
+
+    await signupApi({
+      first_name: firstName,
+      last_name: lastName,
+      email,
+      password,
+    });
+
     dispatch(
       setFormData({
         firstName,
@@ -60,8 +77,6 @@ const SignupForm = (props: ISignupFormProps) => {
         confirmPassword,
       })
     );
-
-    changeStepHandler(2);
   };
 
   return (
