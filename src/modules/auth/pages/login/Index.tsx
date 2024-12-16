@@ -1,5 +1,4 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import { LoginData } from "../signup/types/constants";
 import { btnShowType } from "@/common/types";
 import Input from "@/common/components/form-fields/Input";
 import { ShowPassword } from "@/assets/Svg";
@@ -12,6 +11,7 @@ import { ILoginForm } from "./types";
 import { useLoginApi } from "../../services";
 import { useDispatch } from "react-redux";
 import { setCredentials } from "@/redux/slices/authSlice";
+import { LoginData } from "./types/constants";
 
 const Login = () => {
   const {
@@ -75,12 +75,11 @@ const Login = () => {
             type="submit"
           />
           <div className="flex justify-center gap-2 text-lg mt-6">
-            <p>Forgot Password? </p>
             <Link
               className="underline hover:text-blue-700 cursor-pointer"
-              to={AuthRoutesPath.Signup}
+              to={AuthRoutesPath.ForgotPassword}
             >
-              Reset
+              Forgot Password?
             </Link>
           </div>
           <div className="flex justify-center gap-2 text-lg mt-4">

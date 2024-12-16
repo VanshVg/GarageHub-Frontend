@@ -30,3 +30,13 @@ export const useLoginApi = () => {
 
   return { loginApi, isLoading, isError, isSuccess };
 };
+
+export const useForgotPasswordApi = () => {
+  const [postApi, { isError, isLoading, isSuccess }] = useAxiosPost();
+
+  const forgotPasswordApi = async (data: object) => {
+    return postApi(`${AUTH_PATH}/forgot-password`, data);
+  };
+
+  return { forgotPasswordApi, isLoading, isError, isSuccess };
+};
