@@ -20,3 +20,13 @@ export const useUpdateRoleApi = () => {
 
   return { updateRoleApi, isLoading, isError, isSuccess };
 };
+
+export const useLoginApi = () => {
+  const [postApi, { isError, isLoading, isSuccess }] = useAxiosPost();
+
+  const loginApi = async (data: object) => {
+    return postApi(`${AUTH_PATH}/login`, data);
+  };
+
+  return { loginApi, isLoading, isError, isSuccess };
+};

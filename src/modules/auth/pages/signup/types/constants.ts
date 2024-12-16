@@ -8,3 +8,8 @@ export const RoleSelectionData = {
   subHeading: "Select whether you are a Customer or a Garage Owner to proceed.",
   errorMessage: "Please select a role to proceed.",
 };
+
+export const LoginData = {
+  heading: "Welcome Back",
+  subHeading: "Please enter your details to login.",
+};

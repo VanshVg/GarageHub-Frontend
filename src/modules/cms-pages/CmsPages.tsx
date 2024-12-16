@@ -1,4 +1,6 @@
-import React, { Suspense } from "react";
+import { clearFormData } from "@/redux/slices/signupSlice";
+import React, { Suspense, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
 
 const CmsNavbar = React.lazy(
@@ -6,6 +8,12 @@ const CmsNavbar = React.lazy(
 );
 
 const CmsPages = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(clearFormData());
+  }, []);
+
   return (
     <>
       <Suspense>
