@@ -43,6 +43,7 @@ const useAxios = <T = any>(
     } catch (error: any) {
       setIsError(true);
       setIsLoading(false);
+      setIsSuccess(false);
 
       const errorMessage =
         axios.isAxiosError(error) && error.response?.data?.message

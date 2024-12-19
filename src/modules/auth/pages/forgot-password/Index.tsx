@@ -27,7 +27,9 @@ const ForgotPassword = () => {
     const { data } = await forgotPasswordApi(values);
 
     if (data?.data?.token) {
-      navigate(`${AuthRoutesPath.OtpVerification}?auth=${data?.data?.token}`);
+      navigate(`${AuthRoutesPath.OtpVerification}`, {
+        state: { token: data?.data?.token },
+      });
     }
   };
 

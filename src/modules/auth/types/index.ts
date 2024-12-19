@@ -3,4 +3,5 @@ export enum AuthRoutesPath {
   Signup = "/signup",
   OtpVerification = "/otp-verification",
   ForgotPassword = "/forgot-password",
+  ResetPassword = "/reset-password",
 }

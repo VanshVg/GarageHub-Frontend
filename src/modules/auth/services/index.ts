@@ -40,3 +40,23 @@ export const useForgotPasswordApi = () => {
 
   return { forgotPasswordApi, isLoading, isError, isSuccess };
 };
+
+export const useResendOtpApi = () => {
+  const [postApi, { isError, isLoading, isSuccess }] = useAxiosPost();
+
+  const resendOtpApi = async (token: string) => {
+    return postApi(`${AUTH_PATH}/resend-otp?auth=${token}`);
+  };
+
+  return { resendOtpApi, isLoading, isError, isSuccess };
+};
+
+export const useOtpVerificationApi = () => {
+  const [postApi, { isError, isLoading, isSuccess }] = useAxiosPost();
+
+  const otpVerificationApi = async (data: object, token: string) => {
+    return postApi(`${AUTH_PATH}/verify-otp?auth=${token}`, data);
+  };
+
+  return { otpVerificationApi, isLoading, isError, isSuccess };
+};

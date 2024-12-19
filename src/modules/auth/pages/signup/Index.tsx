@@ -28,7 +28,9 @@ const Signup = () => {
       email: formData?.formData?.email,
     });
     if (data?.data?.token) {
-      navigate(`${AuthRoutesPath.OtpVerification}?auth=${data?.data?.token}`);
+      navigate(`${AuthRoutesPath.OtpVerification}`, {
+        state: { token: data?.data?.token, newUser: true },
+      });
     }
   };
 
