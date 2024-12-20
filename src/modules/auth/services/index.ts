@@ -60,3 +60,13 @@ export const useOtpVerificationApi = () => {
 
   return { otpVerificationApi, isLoading, isError, isSuccess };
 };
+
+export const useResetPasswordApi = () => {
+  const [postApi, { isError, isLoading, isSuccess }] = useAxiosPost();
+
+  const resetPasswordApi = async (data: object, token: string) => {
+    return postApi(`${AUTH_PATH}/reset-password?auth=${token}`, data);
+  };
+
+  return { resetPasswordApi, isLoading, isError, isSuccess };
+};

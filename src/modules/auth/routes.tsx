@@ -4,6 +4,7 @@ import { IRoute } from "@/common/types";
 import { AuthRoutesPath } from "./types";
 import OtpVerification from "./pages/otp-verification/Index";
 import ForgotPassword from "./pages/forgot-password/Index";
+import ResetPassword from "./pages/reset-password/Index";
 
 const Login = React.lazy(() => import("@/modules/auth/pages/login/Index"));
 const Signup = React.lazy(() => import("@/modules/auth/pages/signup/Index"));
@@ -31,5 +32,9 @@ export const AuthRoutes = applySuspense([
   {
     path: AuthRoutesPath.ForgotPassword,
     element: <ForgotPassword />,
+  },
+  {
+    path: AuthRoutesPath.ResetPassword,
+    element: <ResetPassword />,
   },
 ]);
