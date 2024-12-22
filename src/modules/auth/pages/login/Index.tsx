@@ -10,7 +10,7 @@ import { yupResolver } from "@hookform/resolvers/yup/src/yup.js";
 import { ILoginForm } from "./types";
 import { useLoginApi } from "../../services";
 import { useDispatch } from "react-redux";
-import { setCredentials } from "@/redux/slices/authSlice";
+import { setCredentials, setUser } from "@/redux/slices/authSlice";
 import { LoginData } from "./types/constants";
 
 const Login = () => {
@@ -36,6 +36,7 @@ const Login = () => {
 
     if (data) {
       dispatch(setCredentials({ token: data?.data?.accessToken }));
+      dispatch(setUser({ userData: data?.data?.user }));
     }
   };
 
