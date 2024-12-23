@@ -10,6 +10,8 @@ import { AuthRoutes } from "./modules/auth/routes";
 import { AuthRoutesPath } from "./modules/auth/types";
 import { useDispatch } from "react-redux";
 import { clearFormData } from "./redux/slices/signupSlice";
+import Dashboard from "./modules/dashboard/Dashboard";
+import { DashboardRoutes } from "./modules/dashboard/routes";
 
 const applySuspense = (routes: IRoute[]): IRoute[] => {
   return routes.map((route: IRoute) => ({
@@ -43,7 +45,18 @@ const RouterComponent = () => {
     },
   ]);
 
-  const router = createBrowserRouter([...routesForCMS, ...routesForAuth]);
+  const routesForDashboard = applySuspense([
+    {
+      element: <Dashboard />,
+      children: DashboardRoutes,
+    },
+  ]);
+
+  const router = createBrowserRouter([
+    ...routesForCMS,
+    ...routesForAuth,
+    ...routesForDashboard,
+  ]);
 
   return <RouterProvider router={router} />;
 };
