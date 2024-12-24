@@ -1,4 +1,4 @@
-import { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { IRoute } from "./common/types";
@@ -12,7 +12,11 @@ import { useDispatch } from "react-redux";
 import { clearFormData } from "./redux/slices/signupSlice";
 import Dashboard from "./modules/dashboard/Dashboard";
 import { DashboardRoutes } from "./modules/dashboard/routes";
+import { DashboardRoutesPath } from "./modules/dashboard/types";
 
+const RequiresAuth = React.lazy(
+  () => import("@/modules/dashboard/components/RequiresAuth")
+);
 const applySuspense = (routes: IRoute[]): IRoute[] => {
   return routes.map((route: IRoute) => ({
     ...route,
@@ -45,10 +49,10 @@ const RouterComponent = () => {
     },
   ]);
 
-  const routesForDashboard = applySuspense([
+  const routesForDashboard = applySuspenseForAuth([
     {
+      path: DashboardRoutesPath.Dashboard,
       element: <Dashboard />,
-      children: DashboardRoutes,
     },
   ]);
 

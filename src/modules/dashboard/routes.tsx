@@ -3,18 +3,25 @@ import React, { Suspense } from "react";
 import { IRoute } from "@/common/types";
 import { DashboardRoutesPath } from "./types";
 
-const Home = React.lazy(() => import("@/modules/dashboard/pages/home/Index"));
+const Dashboard = React.lazy(() => import("@/modules/dashboard/Dashboard"));
+const RequiresAuth = React.lazy(
+  () => import("@/modules/dashboard/components/RequiresAuth")
+);
 
-const applySuspense = (routes: IRoute[]): IRoute[] => {
+const applySuspenseForAuth = (routes: IRoute[]): IRoute[] => {
   return routes.map((route: IRoute) => ({
     ...route,
-    element: <Suspense>{route.element}</Suspense>,
+    element: (
+      <Suspense>
+        <RequiresAuth>{route.element}</RequiresAuth>
+      </Suspense>
+    ),
   }));
 };
 
-export const DashboardRoutes = applySuspense([
+export const DashboardRoutes = applySuspenseForAuth([
   {
     path: DashboardRoutesPath.Dashboard,
-    element: <Home />,
+    element: <Dashboard />,
   },
 ]);
