@@ -10,9 +10,7 @@ const RequiresAuth = ({ children }: { children: ReactNode }) => {
   if (!isAuthenticated) {
     return <Navigate to={AuthRoutesPath.Login} />;
   } else {
-    {
-      children;
-    }
+    <>{children}</>;
   }
 };
 
