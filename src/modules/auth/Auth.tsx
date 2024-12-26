@@ -5,13 +5,14 @@ import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { Suspense } from "react";
 
 import { CmsRoutesPath } from "../cms-pages/types";
+import { DashboardRoutesPath } from "../dashboard/types";
 
 const Auth = () => {
   const { isAuthenticated } = useSelector(getAuth);
   const navigate = useNavigate();
 
   if (isAuthenticated) {
-    return <Navigate to={""} />;
+    return <Navigate to={DashboardRoutesPath.Dashboard} />;
   } else {
     return (
       <div className="bg-white bg-authPattern flex justify-center min-h-screen py-8 px-4">
