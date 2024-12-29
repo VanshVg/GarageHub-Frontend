@@ -11,7 +11,7 @@ import { AuthRoutesPath } from "./modules/auth/types";
 import { useDispatch } from "react-redux";
 import { clearFormData } from "./redux/slices/signupSlice";
 import Dashboard from "./modules/dashboard/Dashboard";
-import { DashboardRoutes } from "./modules/dashboard/routes";
+import { DashboardRoutesPath } from "./modules/dashboard/types";
 
 const RequiresAuth = React.lazy(
   () => import("@/modules/dashboard/components/RequiresAuth")
@@ -61,8 +61,8 @@ const RouterComponent = () => {
 
   const routesForDashboard = applySuspenseForAuth([
     {
+      path: DashboardRoutesPath.Dashboard,
       element: <Dashboard />,
-      children: DashboardRoutes,
     },
   ]);
 
