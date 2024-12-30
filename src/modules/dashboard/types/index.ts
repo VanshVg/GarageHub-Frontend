@@ -20,3 +20,8 @@ export interface ISidebar {
     color?: string;
   }) => JSX.Element;
 }
+
+export interface ISidebarElementProps {
+  element: ISidebar;
+  onClickHandler?: () => void;
+}

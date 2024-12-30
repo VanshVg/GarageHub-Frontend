@@ -1,14 +1,11 @@
 import { LogoutIcon, SidebarIcon } from "@/assets/Svg";
 import { MainLogo } from "@/common/types/constants";
 import useSidebar from "@/hooks/useSidebar";
-import { useLocation, useNavigate } from "react-router-dom";
+import SidebarElement from "./SidebarElement";
+import { Fragment } from "react/jsx-runtime";
 
 const Sidebar = () => {
   const { sidebarElements } = useSidebar();
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  console.log(location);
 
   return (
     <div className="h-[100vh] w-[291px] bg-slate-800 py-5 flex flex-col">
@@ -19,43 +16,21 @@ const Sidebar = () => {
         </div>
       </div>
       {sidebarElements.map((element, index) => (
-        <div
-          className={
-            "flex justify-left p-2 pl-10 gap-4 mr-14 mt-5 rounded-r-md hover:bg-primaryButton hover:text-black cursor-pointer transition-colors duration-300 " +
-            (location.pathname === element.path
-              ? "bg-primaryButton text-black"
-              : "text-white")
-          }
-          onClick={() => {
-            navigate(element.path);
-          }}
-          key={`${element.name}_${index}`}
-        >
-          <div>
-            {element.icon && (
-              <element.icon
-                color={
-                  location.pathname === element.path
-                    ? ""
-                    : "rgba(255, 255, 255, 1)"
-                }
-              />
-            )}
-          </div>
-          <h2 className="text-[18px] font-semibold">{element.name}</h2>
-        </div>
+        <Fragment key={`${element.name}_${index}`}>
+          <SidebarElement element={element} />
+        </Fragment>
       ))}
       <div className="self-stretch mt-auto mb-[80px]">
-        <div
-          className={
-            "flex justify-left p-2 pl-10 gap-4 mr-14 mt-5 rounded-r-md hover:bg-primaryButton hover:text-black cursor-pointer transition-colors duration-300 text-white"
-          }
-        >
-          <div>
-            <LogoutIcon />
-          </div>
-          <h2 className="text-[18px] font-semibold">Logout</h2>
-        </div>
+        <SidebarElement
+          element={{
+            name: "Logout",
+            icon: LogoutIcon,
+            path: "",
+          }}
+          onClickHandler={() => {
+            console.log("Logout called");
+          }}
+        />
       </div>
     </div>
   );
