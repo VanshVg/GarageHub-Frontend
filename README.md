@@ -4,3 +4,4 @@ GarageHub is a modern and comprehensive Garage Management System (GMS) designed 
 ## Technology Stack:
 - React.js: For building dynamic, responsive, and interactive user interfaces.
 - Tailwind CSS: For modern, customizable, and consistent styling.
+- Redux: For state management to handle complex and scalable application data flow.
