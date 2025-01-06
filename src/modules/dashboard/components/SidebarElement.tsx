@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { ISidebarElementProps } from "../types";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { getSidebar } from "@/redux/slices/sidebarSlice";
 
 const SidebarElement = (props: ISidebarElementProps) => {
   const { element, onClickHandler } = props;
@@ -8,14 +10,16 @@ const SidebarElement = (props: ISidebarElementProps) => {
   const [isActive, setIsActive] = useState<boolean>(false);
 
   const navigate = useNavigate();
+  const { isSidebarOpen } = useSelector(getSidebar);
 
   return (
     <div
       className={
-        "flex justify-left p-2 pl-10 gap-4 mr-14 mt-5 rounded-r-md hover:bg-primaryButton hover:text-black cursor-pointer transition-colors duration-300 " +
+        "flex justify-left p-2 pl-10 gap-4 mt-5 rounded-r-md hover:bg-primaryButton hover:text-black cursor-pointer transition-colors duration-300 " +
         (location.pathname === element.path
-          ? "bg-primaryButton text-black"
-          : "text-white")
+          ? "bg-primaryButton text-black "
+          : "text-white ") +
+        (isSidebarOpen ? "mr-14" : "mr-5")
       }
       onClick={() => {
         if (!onClickHandler) {
