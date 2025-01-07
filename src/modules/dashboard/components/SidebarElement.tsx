@@ -15,10 +15,10 @@ const SidebarElement = (props: ISidebarElementProps) => {
   return (
     <div
       className={
-        "flex justify-left p-2 pl-10 gap-4 mt-5 rounded-r-md hover:bg-primaryButton hover:text-black cursor-pointer transition-colors duration-300 " +
+        "flex justify-left p-2 pl-10 gap-4 mt-5 rounded-r-md hover:bg-slate-700 cursor-pointer transition-all duration-300 " +
         (location.pathname === element.path
-          ? "bg-primaryButton text-black "
-          : "text-white ") +
+          ? "bg-primaryButton text-black hover:bg-primaryButton "
+          : "text-white  ") +
         (isSidebarOpen ? "mr-14" : "mr-5")
       }
       onClick={() => {
@@ -39,14 +39,14 @@ const SidebarElement = (props: ISidebarElementProps) => {
         {element.icon && (
           <element.icon
             color={
-              location.pathname === element.path || isActive
-                ? ""
-                : "rgba(255, 255, 255, 1)"
+              location.pathname === element.path ? "" : "rgba(255, 255, 255, 1)"
             }
           />
         )}
       </div>
-      <h2 className="text-[18px] font-semibold">{element.name}</h2>
+      <h2 className="text-[18px] font-semibold transition-all duration-300">
+        {element.name}
+      </h2>
     </div>
   );
 };

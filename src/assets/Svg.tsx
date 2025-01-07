@@ -234,11 +234,12 @@ export const SidebarIcon = () => {
       <g
         fill="none"
         fillRule="evenodd"
-        stroke="white"
+        stroke="black"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"
         transform="translate(1 1)"
+        style={{ color: "#1E293B" }}
       >
         <rect width="18" height="18" rx="2"></rect>
         <path d="M6 0v18"></path>
