@@ -9,6 +9,14 @@ export enum CustomerDashboardRoutesPath {
   Appointments = "/appointments",
 }
 
+export enum OwnerDashboardRoutesPath {
+  Garage = "/garage",
+  Appointments = "/appointments",
+  Services = "/services",
+  Inventory = "/inventory",
+  CustomerSupport = "/customer-support",
+}
+
 export interface ISidebar {
   name: string;
   path: string;
