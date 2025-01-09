@@ -4,7 +4,6 @@ import {
   CustomerSupportIcon,
   GarageIcon,
   HomeIcon,
-  InventoryIcon,
   ServicesIcon,
   SettingsIcon,
 } from "@/assets/Svg";
@@ -37,19 +36,14 @@ export const OwnerSidebarElements: ISidebar[] = [
     icon: AppointmentsIcon,
   },
   {
-    name: "Inventory",
-    path: OwnerDashboardRoutesPath.Inventory,
-    icon: InventoryIcon,
+    name: "Support",
+    path: OwnerDashboardRoutesPath.CustomerSupport,
+    icon: CustomerSupportIcon,
   },
   {
     name: "Settings",
     path: DashboardRoutesPath.Settings,
     icon: SettingsIcon,
-  },
-  {
-    name: "Customer Support",
-    path: OwnerDashboardRoutesPath.CustomerSupport,
-    icon: CustomerSupportIcon,
   },
 ];
 

@@ -12,8 +12,7 @@ export enum CustomerDashboardRoutesPath {
 export enum OwnerDashboardRoutesPath {
   Garage = "/garage",
   Appointments = "/appointments",
-  Services = "/services",
-  Inventory = "/inventory",
+  Services = "/garage-services",
   CustomerSupport = "/customer-support",
 }
 

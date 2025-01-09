@@ -73,9 +73,7 @@ const Sidebar = () => {
       <Tooltip title={isSidebarOpen ? "Collapse Sidebar" : "Expand Sidebar"}>
         <div
           className={
-            "left-full flex items-center justify-center " +
-            "w-[40px] h-[40px] text-white rounded-full " +
-            "cursor-pointer transition-all duration-300"
+            "left-full flex items-center justify-center w-[40px] h-[40px] text-white rounded-full cursor-pointer transition-all duration-300"
           }
           onClick={() => {
             dispatch(toggleSidebar());
