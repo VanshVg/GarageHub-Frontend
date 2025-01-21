@@ -3,7 +3,7 @@ import { btnShowType } from "@/common/types";
 import Input from "@/common/components/form-fields/Input";
 import { ShowPassword } from "@/assets/Svg";
 import Button from "@/common/components/form-fields/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthRoutesPath } from "../../types";
 import { loginValidationSchema } from "./validation-schema/loginSchema";
 import { yupResolver } from "@hookform/resolvers/yup/src/yup.js";
@@ -12,6 +12,7 @@ import { useLoginApi } from "../../services";
 import { useDispatch } from "react-redux";
 import { setCredentials, setUser } from "@/redux/slices/authSlice";
 import { LoginData } from "./types/constants";
+import { DashboardRoutesPath } from "@/modules/dashboard/types";
 
 const Login = () => {
   const {
@@ -25,6 +26,7 @@ const Login = () => {
 
   const { loginApi } = useLoginApi();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<ILoginForm> = async (values) => {
     const { email, password } = values;
@@ -37,6 +39,7 @@ const Login = () => {
     if (data) {
       dispatch(setCredentials({ token: data?.data?.accessToken }));
       dispatch(setUser({ userData: data?.data?.user }));
+      navigate(DashboardRoutesPath.Dashboard);
     }
   };
 
